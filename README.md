@@ -14,7 +14,7 @@ This app uses webpack-dev-server, and you can access it throw localhost:8080.
 For production: run ``npm run build`` and ``npm start``
 The express server can be access throw localhort:3000
 
-### **Used Technologies**
+### **Technologies**
 - React;
 - React-Router;
 - Webpack (v.3.0.0);
