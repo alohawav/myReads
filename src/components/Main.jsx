@@ -6,7 +6,6 @@ import Shelf from './Shelf';
 
 const Main = (props) => {
   const { books, onUpdate } = props;
-  console.log(books);
   if (books.length === 0) {
     return <div />;
   }
@@ -24,6 +23,9 @@ const Main = (props) => {
         />
         <Shelf title="Want to read" query="wantToRead" books={books} onUpdate={onUpdate} />
         <Shelf title="Read" query="read" books={books} onUpdate={onUpdate} />
+        <div className="open-search">
+          <Link to="/search">Add a book</Link>
+        </div>
       </div>
     </div>
   );
