@@ -37,7 +37,7 @@ export default class Routes extends Component {
       if (Array.isArray(result)) {
         this.setState({ result, error: '' });
       } else {
-        this.setState({ error: result.error });
+        this.setState({ error: 'error' });
       }
     });
   }

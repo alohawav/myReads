@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 
 import Shelf from './Shelf';
 
-const Main = (props) => {
-  const { books, onUpdate } = props;
+const Main = ({ books, onUpdate }) => {
   if (books.length === 0) {
     return <div />;
   }
