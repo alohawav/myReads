@@ -15,7 +15,7 @@ const Book = ({ book, onUpdate }) =>
           }}
         />
         <div className="book-shelf-changer">
-          <select onChange={e => onUpdate(book, e.target.value)} defaultValue="def">
+          <select onChange={e => onUpdate(book, e.target.value)} defaultValue={book.shelf}>
             <option value="def" disabled>
               Move to...
             </option>
@@ -30,11 +30,13 @@ const Book = ({ book, onUpdate }) =>
         {book.title}
       </div>
       <div className="book-authors">
-        {book.authors.map(author =>
-          (<p key={author}>
-            {author}
-          </p>),
-        )}
+        {book.authors
+          ? book.authors.map(author =>
+            (<p key={author}>
+              {author}
+            </p>),
+            )
+          : <p>N/A</p>}
       </div>
     </div>
   </li>);

@@ -10,12 +10,9 @@ export default class Routes extends Component {
     super(props);
     this.state = {
       books: [],
-      result: [],
-      error: '',
     };
     this.fetchData = this.fetchData.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {
@@ -29,21 +26,13 @@ export default class Routes extends Component {
   }
 
   handleUpdate(book, shelf) {
-    BooksAPI.update(book, shelf).then(this.fetchData());
-  }
-
-  handleSearch(query) {
-    BooksAPI.search(query, 20).then((result) => {
-      if (Array.isArray(result)) {
-        this.setState({ result, error: '' });
-      } else {
-        this.setState({ error: 'error' });
-      }
+    BooksAPI.update(book, shelf).then(() => {
+      this.fetchData();
     });
   }
 
   render() {
-    const { books, result, error } = this.state;
+    const { books } = this.state;
     return (
       <Router>
         <div>
@@ -54,14 +43,7 @@ export default class Routes extends Component {
           />
           <Route
             path="/search"
-            render={props =>
-              (<Search
-                {...props}
-                result={result}
-                error={error}
-                onUpdate={this.handleUpdate}
-                onSearch={this.handleSearch}
-              />)}
+            render={props => <Search {...props} onUpdate={this.handleUpdate} />}
           />
         </div>
       </Router>

@@ -13,7 +13,7 @@ const Shelf = ({ title, query, books, onUpdate }) =>
       <ol className="books-grid">
         {books
           .filter(book => book.shelf === `${query}`)
-          .map(book => <Book key={Math.random()} book={book} onUpdate={onUpdate} />)}
+          .map(book => <Book key={book.id + book.shelf} book={book} onUpdate={onUpdate} />)}
       </ol>
     </div>
   </div>);

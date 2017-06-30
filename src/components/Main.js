@@ -6,7 +6,7 @@ import Shelf from './Shelf';
 
 const Main = ({ books, onUpdate }) => {
   if (books.length === 0) {
-    return <div />;
+    return <p>No books available</p>;
   }
   return (
     <div className="list-books">
